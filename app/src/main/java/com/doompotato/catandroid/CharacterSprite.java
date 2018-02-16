@@ -3,6 +3,7 @@ package com.doompotato.catandroid;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.view.Display;
 
 /**
  * Created by dmorard on 14/2/2018.
@@ -13,7 +14,7 @@ public class CharacterSprite {
     private float x;
     private float y;
     private int xVelocity = 10;
-    private int yVelocity = 5;
+    private int yVelocity = 20;
     private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
     private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
@@ -36,5 +37,6 @@ public class CharacterSprite {
         if ((y > screenHeight - image.getHeight()) || (y < 0)) {
             yVelocity = yVelocity * -1;
         }
+        int asd = image.getDensity();
     }
 }
