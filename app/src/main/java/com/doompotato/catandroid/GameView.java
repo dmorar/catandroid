@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -40,6 +41,14 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback{
         Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
         return resizedBitmap;
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean bol =  super.onTouchEvent(event);
+        characterSprite.moveToPosition(event.getX(),event.getY());
+        return bol;
+    }
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);

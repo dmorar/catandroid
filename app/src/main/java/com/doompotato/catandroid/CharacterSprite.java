@@ -39,4 +39,9 @@ public class CharacterSprite {
         }
         int asd = image.getDensity();
     }
+
+    public void moveToPosition(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
 }
