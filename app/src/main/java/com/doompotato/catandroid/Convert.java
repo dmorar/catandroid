@@ -11,11 +11,11 @@ public  class Convert {
 
     private static final DisplayMetrics dm = Resources.getSystem().getDisplayMetrics();
 
-    public static int dpToPx(int dp) {
+    public static float dpToPx(float dp) {
         int px = Math.round(dp * (dm.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         return px;
     }
-    public static int pxToDp(int px ) {
+    public static int pxToDp(float px) {
         int dp = Math.round(px / (dm.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         return dp;
     }

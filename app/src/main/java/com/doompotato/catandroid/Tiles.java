@@ -11,11 +11,16 @@ import java.util.Map;
  * Created by dmorard on 22/2/2018.
  */
 
-public class Tiles implements Drawable{
+public class Tiles implements Drawable {
     private ArrayList<TileSprite> tiles;
+    private int tileHeight;
+    private int tileWidth;
 
     public Tiles(Map<TileType, Bitmap> tilesBitmap, List<TileDTO> tilesNumber, float x, float y) {
-        buildTiles(tilesBitmap,tilesNumber,x,y);
+        buildTiles(tilesBitmap, tilesNumber, x, y);
+        Bitmap bitmap = tilesBitmap.entrySet().iterator().next().getValue();
+        tileHeight=Convert.pxToDp(bitmap.getHeight());
+        tileWidth =Convert.pxToDp(bitmap.getWidth());
     }
 
     private void buildTiles(Map<TileType, Bitmap> tilesBitmap, List<TileDTO> tilesNumber, float x, float y) {
@@ -48,7 +53,7 @@ public class Tiles implements Drawable{
                     plusY *= 1.333333;
                     break;
             }
-            TileSprite tileSprite = new TileSprite(bitmap, entry.getTileNumber(), x + plusX, y + plusY);
+            TileSprite tileSprite = new TileSprite(bitmap, entry.getTileNumber(), Convert.pxToDp(x + plusX),Convert.pxToDp( y + plusY));
             plusX += bitmap.getWidth();
             this.tiles.add(tileSprite);
             i++;
@@ -66,4 +71,15 @@ public class Tiles implements Drawable{
     public void update() {
 
     }
+
+    public int getTileHeight() {
+        return tileHeight;
+    }
+
+
+    public int getTileWidth() {
+        return tileWidth;
+    }
+
+
 }

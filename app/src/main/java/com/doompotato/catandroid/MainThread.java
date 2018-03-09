@@ -20,7 +20,7 @@ public class MainThread extends Thread {
         super();
         this.surfaceHolder = surfaceHolder;
         this.gameView = gameView;
-        this.targetFPS = 60;
+        this.targetFPS = 30;
 
     }
     @Override
@@ -59,7 +59,7 @@ public class MainThread extends Thread {
 
             try {
                 this.sleep(waitTime);
-            } catch (Exception e) {}
+            } catch (Exception e) {System.out.println(waitTime);}
 
             totalTime += System.nanoTime() - startTime;
             frameCount++;

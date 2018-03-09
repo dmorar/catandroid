@@ -22,7 +22,7 @@ public class Sprite implements Drawable {
     }
 
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(image, x, y, null);
+        canvas.drawBitmap(image, Convert.dpToPx(x), Convert.dpToPx(y), null);
     }
 
     public void update(){

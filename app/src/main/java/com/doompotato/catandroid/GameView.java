@@ -33,12 +33,12 @@ class GameView extends SurfaceView implements SurfaceHolder.Callback{
         thread = new MainThread(getHolder(), this);
         setFocusable(true);
     }
-    public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight)
+    public Bitmap getResizedBitmap(Bitmap bm, float newWidth, float newHeight)
     {
         int width = bm.getWidth();
         int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
+        float scaleWidth = ( newWidth) / width;
+        float scaleHeight = ( newHeight) / height;
         // create a matrix for the manipulation
         Matrix matrix = new Matrix();
         // resize the bit map

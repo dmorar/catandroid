@@ -1,11 +1,8 @@
 package com.doompotato.catandroid;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.util.DisplayMetrics;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,12 +24,13 @@ public class Board implements Drawable {
         this.x=x;
         this.y=y;
         tiles = new Tiles(tilesBitmap,tilesNumber,x,y);
-       // cities = new Cities(x,y);
+        cities = new Cities(x,y,tiles.getTileWidth(),tiles.getTileHeight());
     }
 
     @Override
     public void draw(Canvas canvas) {
             tiles.draw(canvas);
+            cities.draw(canvas);
     }
 
     @Override
